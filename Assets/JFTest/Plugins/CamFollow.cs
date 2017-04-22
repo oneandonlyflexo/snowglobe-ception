@@ -20,6 +20,6 @@ public class CamFollow : MonoBehaviour
 	void Update ()
     {
         scratchPos = Vector3.SmoothDamp(transform.position, target.position,ref myVelocity,easeTime * Time.deltaTime);
-        transform.position = new Vector3(scratchPos.x, scratchPos.y, initialZ);
+        transform.position = new Vector3(scratchPos.x, transform.position.y, initialZ);
     }
 }
