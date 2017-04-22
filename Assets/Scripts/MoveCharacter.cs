@@ -8,22 +8,45 @@ public class MoveCharacter : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    private bool sneezing;
+    private bool Walking { get { return animator.GetBool(WALKING); } }
+
+    public void StopSneezing()
+    {
+        sneezing = false;
+    }
+
     private void FixedUpdate()
     {
         var moveHorizontal = Input.GetAxis("Horizontal");
 
-        if (!Mathf.Approximately(moveHorizontal, 0.0f))
+        if (!sneezing)
         {
-            var movement = new Vector3(moveHorizontal, 0.0f);
-            rb.velocity = movement * speed;
-            animator.SetBool(WALKING, true);
+            if (Input.GetAxis("Use") > 0.0f)
+            {
+                StopWalking();
 
-            transform.localScale = new Vector3(moveHorizontal, transform.localScale.y, transform.localScale.z);
+                sneezing = true;
+                animator.SetTrigger("Sneeze");
+            }
+            else if (!Mathf.Approximately(moveHorizontal, 0.0f))
+            {
+                var movement = new Vector3(moveHorizontal, 0.0f);
+                rb.velocity = movement * speed;
+                animator.SetBool(WALKING, true);
+
+                transform.localScale = new Vector3(moveHorizontal, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                StopWalking();
+            }
         }
-        else
-        {
-            rb.velocity = Vector3.zero;
-            animator.SetBool(WALKING, false);
-        }
+    }
+
+    private void StopWalking()
+    {
+        rb.velocity = Vector3.zero;
+        animator.SetBool(WALKING, false);
     }
 }
