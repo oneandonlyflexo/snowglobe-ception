@@ -14,5 +14,9 @@ public class MoveCharacter : MonoBehaviour
             var movement = new Vector3(moveHorizontal, 0.0f);
             rb.velocity = movement * speed;
         }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }
