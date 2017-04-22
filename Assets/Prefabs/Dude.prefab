@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 50702581582995598}
   - component: {fileID: 61519790995740762}
   - component: {fileID: 114266810743143994}
+  - component: {fileID: 95558231403451412}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -165,6 +166,23 @@ BoxCollider2D:
   m_Offset: {x: -0.012818396, y: 0.03845501}
   serializedVersion: 2
   m_Size: {x: 1.9987562, y: 4.2169733}
+--- !u!95 &95558231403451412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646556064811940}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36b8f842cc9964b0495f90d5168fae0e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114266810743143994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.75
   rb: {fileID: 50702581582995598}
+  animator: {fileID: 95558231403451412}
 --- !u!212 &212031744257371006
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -209,7 +228,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1fac46be5f7174c44865c0b65a1e5f8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b468e64f94f594eb490531a33c0d02d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
