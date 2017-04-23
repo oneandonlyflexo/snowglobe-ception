@@ -33,6 +33,21 @@ public class MoveCharacter : MonoBehaviour
         sneezing = false;
     }
 
+    private void Awake()
+    {
+        EventManager.Listen("ToggleIndoors", ToggleIndoorOutDoor);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListen("ToggleIndoors", ToggleIndoorOutDoor);
+    }
+
+    private void ToggleIndoorOutDoor()
+    {
+        isInside = !isInside;
+    }
+
     private void Update()
     {
         if (timeSinceLastPuff >= timeBetweenPuffs)

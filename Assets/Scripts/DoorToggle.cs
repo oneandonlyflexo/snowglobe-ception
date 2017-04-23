@@ -19,7 +19,7 @@ public class DoorToggle : MonoBehaviour {
 			timeDoorInactive = 1;
 			DoorSpace.SetActive (!DoorSpace.activeSelf);
 
-            UpdateToonsSpacialKnowledge(collider);
+            EventManager.Dispatch("ToggleIndoors");
         }
 	}
 
@@ -31,13 +31,4 @@ public class DoorToggle : MonoBehaviour {
 	{
 		return !Mathf.Approximately(Input.GetAxis(axis), 0.0f);
 	}
-
-    private void UpdateToonsSpacialKnowledge(Collider2D collider)
-    {
-        var mcScript = collider.GetComponent<MoveCharacter>();
-        if (mcScript != null)
-        {
-            mcScript.isInside = !mcScript.isInside;
-        }
-    }
 }
