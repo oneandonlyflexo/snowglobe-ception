@@ -67,9 +67,8 @@ public class MoveCharacter : MonoBehaviour
             else if (IsAxisActive(HORIZONTAL))
             {
                 var moveHorizontal = Input.GetAxis(HORIZONTAL);
-                var movement = new Vector3(moveHorizontal, 0.0f);
+				rb.velocity = new Vector3(moveHorizontal * horizontalSpeed, rb.velocity.y, 0);
 
-                rb.velocity = movement * horizontalSpeed;
                 animator.SetBool(WALKING, true);
 
                 transform.localScale = new Vector3(moveHorizontal, transform.localScale.y, transform.localScale.z);
@@ -85,6 +84,11 @@ public class MoveCharacter : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         animator.SetBool(animatorParameter, false);
+    }
+
+    private void StopClimbing()
+    {
+        animator.SetBool(CLIMBING, false);
     }
 
     private void OnTriggerStay2D(Collider2D collider)
@@ -161,6 +165,11 @@ public class MoveCharacter : MonoBehaviour
     {
         return (gameObject.tag == "Ladder_Bottom");
     }
+
+	private bool IsDoor(GameObject gameObject)
+	{
+		return (gameObject.tag == "DoorTrigger");
+	}
 
     private bool AbleToLeaveLadder(GameObject ladder)
     {
