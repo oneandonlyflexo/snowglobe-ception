@@ -628,7 +628,7 @@ MonoBehaviour:
   horizontalSpeed: 8
   rb: {fileID: 50120576095528600}
   animator: {fileID: 95748768140000732}
-  waitTimeOnSwitch: 0.5
+  waitTimeOnSwitch: 0.1
   isInside: 0
   timeBetweenPuffs: 0.5
   prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
