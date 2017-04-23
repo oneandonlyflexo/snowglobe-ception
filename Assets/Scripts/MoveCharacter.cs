@@ -10,10 +10,34 @@ public class MoveCharacter : MonoBehaviour
 
     private bool sneezing;
     private bool Walking { get { return animator.GetBool(WALKING); } }
+    private bool isInside; //not hooked up yet
+
+    [SerializeField]
+    float timeBetweenPuffs = 3f;
+    float timeSinceLastPuff = 0f;
+
+    public Transform prefabFootSnow;
+    public Transform anchor;
 
     public void StopSneezing()
     {
         sneezing = false;
+    }
+
+    private void Update()
+    {
+        if (timeSinceLastPuff >= timeBetweenPuffs)
+        {
+            if (!isInside && Walking && Random.Range(0.0f, 10.0f) > 7f)
+            {
+                Instantiate(prefabFootSnow, anchor.position, Quaternion.identity);
+                timeSinceLastPuff = 0;
+            }
+        }
+        else
+        {
+            timeSinceLastPuff += Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
