@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 114730854562131918}
   - component: {fileID: 58595621239141510}
   - component: {fileID: 95748768140000732}
-  - component: {fileID: 114309855493538332}
   - component: {fileID: 114766382587459198}
   - component: {fileID: 82628419217825118}
   m_Layer: 0
@@ -207,18 +206,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114309855493538332
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1807128094021860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e6f4f4a0fda0c4abf3f5753a841dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorTriggerName: DoorTrigger
 --- !u!114 &114730854562131918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSoundManager: {fileID: 114766382587459198}
   isDog: 1
+  touchingDoor: 0
   verticalSpeed: 8
   horizontalSpeed: 8
   rb: {fileID: 50120576095528600}

@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 95558231403451412}
   - component: {fileID: 82674804482158340}
   - component: {fileID: 114633172816746972}
-  - component: {fileID: 114269259380373578}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -352,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSoundManager: {fileID: 114633172816746972}
   isDog: 0
+  touchingDoor: 0
   verticalSpeed: 10
   horizontalSpeed: 8
   rb: {fileID: 50702581582995598}
@@ -361,18 +361,6 @@ MonoBehaviour:
   prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
     type: 2}
   anchor: {fileID: 4874871612663792}
---- !u!114 &114269259380373578
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1646556064811940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e6f4f4a0fda0c4abf3f5753a841dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorTriggerName: DoorTrigger
 --- !u!114 &114633172816746972
 MonoBehaviour:
   m_ObjectHideFlags: 1

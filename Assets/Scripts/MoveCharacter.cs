@@ -9,9 +9,11 @@ public class MoveCharacter : MonoBehaviour
     private const string HORIZONTAL = "Horizontal";
     private const string TOP_OF_LADDER = "TopOfLadder";
     private const string BOTTOM_OF_LADDER = "BottomOfLadder";
+    public const string DOOR_TRIGGER_NAME = "DoorTrigger";
 
     public DudeSounds charSoundManager;
     public bool isDog = false;
+    public bool touchingDoor = false;
 
     public float verticalSpeed;
     public float horizontalSpeed;
@@ -49,6 +51,9 @@ public class MoveCharacter : MonoBehaviour
     private void ToggleIndoorOutDoor()
     {
         isInside = !isInside;
+
+        //resets for when colliders disappear before being able to send exit
+        touchingDoor = false;
     }
 
     private void Update()
@@ -80,9 +85,15 @@ public class MoveCharacter : MonoBehaviour
             {
                 Stop(WALKING);
 
-                sneezing = true;
-                animator.SetTrigger("Sneeze");
-                charSoundManager.PlaySneeze();
+                if (!touchingDoor)
+                {
+                    sneezing = true;
+                    animator.SetTrigger("Sneeze");
+                    charSoundManager.PlaySneeze();
+                }else
+                {
+                    EventManager.Dispatch("ToggleIndoors");
+                }
             }
             else if (IsAxisActive(HORIZONTAL))
             {
@@ -144,6 +155,11 @@ public class MoveCharacter : MonoBehaviour
         {
             animator.SetBool(BOTTOM_OF_LADDER, true);
         }
+
+        if (collider.name == DOOR_TRIGGER_NAME)
+        {
+            touchingDoor = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
@@ -159,6 +175,11 @@ public class MoveCharacter : MonoBehaviour
         else if (IsBottomOfLadder(collider.gameObject))
         {
             animator.SetBool(BOTTOM_OF_LADDER, false);
+        }
+
+        if (collider.name == DOOR_TRIGGER_NAME)
+        {
+            touchingDoor = false;
         }
     }
 
@@ -189,4 +210,6 @@ public class MoveCharacter : MonoBehaviour
 
         return (minY <= ladderBounds.min.y) || (minY >= ladderBounds.max.y);
     }
+    
+
 }
