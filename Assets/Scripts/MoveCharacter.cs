@@ -86,11 +86,6 @@ public class MoveCharacter : MonoBehaviour
         animator.SetBool(animatorParameter, false);
     }
 
-    private void StopClimbing()
-    {
-        animator.SetBool(CLIMBING, false);
-    }
-
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (IsTopOfLadder(collider.gameObject))
