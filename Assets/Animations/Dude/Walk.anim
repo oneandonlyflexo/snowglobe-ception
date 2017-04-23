@@ -74,4 +74,12 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
-  m_Events: []
+  m_Events:
+  - time: 0.2
+    functionName: PlayFootstep
+    data: 
+    objectReferenceParameter: {fileID: 1646556064811940, guid: d8ec77dfed65a496fa48108b14a9460d,
+      type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
