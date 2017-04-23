@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundSnowPlotter : MonoBehaviour {
+public class GroundSnowPlotter : MonoBehaviour
+{
 
     [SerializeField]
-    Transform groundSnowOnly;
+    Transform groundSnowPrefab;
 
     [SerializeField]
     int numOfFlakes = 500;
-    public Vector3 box;
-    // Use this for initialization
-    void Start () {
-        PopulateRealm();	
-	}
 
+    [SerializeField]
+    Vector3 box;
 
-    void PopulateRealm()
+    void Start ()
     {
         Vector3 tmpv3 = Vector3.zero;
 
@@ -25,13 +23,11 @@ public class GroundSnowPlotter : MonoBehaviour {
             tmpv3 = transform.position + new Vector3(
                 (Random.value - 0.5f) * box.x,
                 (Random.value - 0.5f) * box.y,
-               // (Random.value - 0.5f) * 
-               box.z
-             );
-            //Debug.LogError(">> " + tmpv3);
+                box.z
+                );
 
             Instantiate(
-                groundSnowOnly, 
+                groundSnowPrefab, 
                 tmpv3,
                 Quaternion.identity  
                 );
@@ -39,5 +35,4 @@ public class GroundSnowPlotter : MonoBehaviour {
 
         Destroy(gameObject);
     }
-
 }
