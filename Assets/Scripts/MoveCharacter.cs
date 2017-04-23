@@ -18,7 +18,7 @@ public class MoveCharacter : MonoBehaviour
     private bool sneezing;
     private bool Walking { get { return animator.GetBool(WALKING); } }
     private bool Climbing { get { return animator.GetBool(CLIMBING); } }
-    private bool isInside; //not hooked up yet
+    public bool isInside; //not hooked up yet
 
     [SerializeField]
     float timeBetweenPuffs = 3f;
