@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorToggle : MonoBehaviour {
-
-	public GameObject DoorSpace;
+public class DoorToggle : MonoBehaviour
+{
 
 	private float timeDoorInactive = 0;
 
@@ -17,7 +16,6 @@ public class DoorToggle : MonoBehaviour {
 	private void OnTriggerStay2D(Collider2D collider) {
 		if (timeDoorInactive <= 0 && IsAxisActive ("Use")) {
 			timeDoorInactive = 1;
-			DoorSpace.SetActive (!DoorSpace.activeSelf);
 
             EventManager.Dispatch("ToggleIndoors");
         }

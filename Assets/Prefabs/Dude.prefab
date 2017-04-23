@@ -267,10 +267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c203e5f3337b4a01960be883300abe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDog: 0
   verticalSpeed: 10
   horizontalSpeed: 8
   rb: {fileID: 50702581582995598}
   animator: {fileID: 95558231403451412}
+  isInside: 0
   timeBetweenPuffs: 3
   prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
     type: 2}
