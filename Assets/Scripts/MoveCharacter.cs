@@ -134,12 +134,14 @@ public class MoveCharacter : MonoBehaviour
 
                 if (!touchingDoor)
                 {
-                    // sneezing = true;
-                    // animator.SetTrigger("Sneeze");
                     pointing = true;
                     animator.SetTrigger("Point");
                     point.UseAll();
-                    charSoundManager.PlaySneeze();
+
+                    if (isDog)
+                    {
+                        charSoundManager.PlaySneeze();
+                    }
                 }
                 else
                 {
