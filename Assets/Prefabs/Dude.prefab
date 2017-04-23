@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c203e5f3337b4a01960be883300abe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDog: 0
   verticalSpeed: 10
   horizontalSpeed: 8
   rb: {fileID: 50702581582995598}
