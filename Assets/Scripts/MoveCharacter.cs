@@ -66,8 +66,8 @@ public class MoveCharacter : MonoBehaviour
             }
             else if (!Mathf.Approximately(moveHorizontal, 0.0f))
             {
-                var movement = new Vector3(moveHorizontal, 0.0f);
-                rb.velocity = movement * horizontalSpeed;
+				rb.velocity = new Vector3(moveHorizontal * horizontalSpeed, rb.velocity.y, 0);
+
                 animator.SetBool(WALKING, true);
 
                 transform.localScale = new Vector3(moveHorizontal, transform.localScale.y, transform.localScale.z);
@@ -81,7 +81,7 @@ public class MoveCharacter : MonoBehaviour
 
     private void StopWalking()
     {
-        rb.velocity = Vector3.zero;
+		rb.velocity = new Vector3(0, rb.velocity.y, 0);
         animator.SetBool(WALKING, false);
     }
 
