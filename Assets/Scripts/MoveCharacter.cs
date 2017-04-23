@@ -10,6 +10,8 @@ public class MoveCharacter : MonoBehaviour
     private const string TOP_OF_LADDER = "TopOfLadder";
     private const string BOTTOM_OF_LADDER = "BottomOfLadder";
 
+    public bool isDog = false;
+
     public float verticalSpeed;
     public float horizontalSpeed;
     public Rigidbody2D rb;
@@ -109,6 +111,7 @@ public class MoveCharacter : MonoBehaviour
             animator.SetBool(TOP_OF_LADDER, true);
         }
 
+        if(!isDog)
         if (IsLadder(collider.gameObject))
         {
             var verticalInput = Input.GetAxis(VERTICAL);
