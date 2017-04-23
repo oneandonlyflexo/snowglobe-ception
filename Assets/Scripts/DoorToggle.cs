@@ -5,31 +5,48 @@ using UnityEngine;
 public class DoorToggle : MonoBehaviour
 {
     public string doorTriggerName =  "DoorTrigger";
-    //private float timeDoorInactive = 0;
+    bool touchingDoor = false;
 
-    private void Update() {
-		//if (timeDoorInactive > 0) {
-		//	timeDoorInactive -= Time.deltaTime;
-		//}
-	}
+    private void Awake()
+    {
+        EventManager.Listen("ToggleIndoors", ToggleIndoorOutDoor);
+    }
 
-	private void OnTriggerStay2D(Collider2D collider) {
-        Debug.LogError(">> " + collider.name);
-        if (//timeDoorInactive <= 0 && 
-            IsAxisActive ("Use") &&
-            collider.name == doorTriggerName
-            )
+    private void OnDisable()
+    {
+        EventManager.StopListen("ToggleIndoors", ToggleIndoorOutDoor);
+    }
 
+    private void ToggleIndoorOutDoor()
+    {//resets for when colliders disappear before being able to send exit
+        touchingDoor = false;
+    }
+
+    private void Update()
+    {       
+        if (IsAxisActive("Use") && touchingDoor)
         {
-			//timeDoorInactive = 1;
-            
             EventManager.Dispatch("ToggleIndoors");
         }
-	}
+    }
+    
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.name == doorTriggerName)
+        {
+            Debug.LogError(">> IN: " + collider.name);
+            touchingDoor = true;
+        }
+    }
 
-	private void OnTriggerExit2D(Collider2D collider) {
-		//timeDoorInactive = 0;
-	}
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.name == doorTriggerName)
+        {
+            Debug.LogError(">> OUT: " + collider.name);
+            touchingDoor = false;
+        }
+    }
 
 	private bool IsAxisActive(string axis)
 	{

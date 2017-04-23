@@ -280,7 +280,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4857460408398990}
   - component: {fileID: 61540843598447392}
-  - component: {fileID: 114606574879190874}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -362,9 +361,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4590052727615966}
   - component: {fileID: 61711100510474292}
-  - component: {fileID: 114748146995455600}
   m_Layer: 0
-  m_Name: DoorTriggerExt
+  m_Name: DoorTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,17 +1664,6 @@ MonoBehaviour:
   children:
   - {fileID: 1993096689942652}
   - {fileID: 1431917301714594}
---- !u!114 &114606574879190874
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408524657468150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e6f4f4a0fda0c4abf3f5753a841dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114730741300307692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1720,17 +1707,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &114748146995455600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1543382908843508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e6f4f4a0fda0c4abf3f5753a841dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114749848451343774
 MonoBehaviour:
   m_ObjectHideFlags: 1
