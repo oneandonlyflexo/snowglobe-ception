@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggleInnerColliders : MonoBehaviour {
+public class ToggleOverlays : MonoBehaviour {
 
-    bool isInside = false;
+    public bool insideIsEnabled = false;
+    public bool isInside = false;
 
     public List<GameObject> children = new List<GameObject>();
 
@@ -24,7 +25,10 @@ public class ToggleInnerColliders : MonoBehaviour {
 
         foreach (var record in children)
         {
-           record.SetActive(isInside);
+            if(insideIsEnabled)
+                record.SetActive(isInside);
+            else
+                record.SetActive(!isInside);
         }
     }
 }
