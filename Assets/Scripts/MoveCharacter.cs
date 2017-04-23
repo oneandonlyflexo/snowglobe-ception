@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 public class MoveCharacter : MonoBehaviour
@@ -152,7 +153,7 @@ public class MoveCharacter : MonoBehaviour
             }
             else if (Input.GetButtonDown("Shake"))
             {
-                if (shake.usables.Count > 0)
+                if ((shake.usables.Count > 0) && shake.usables.All(usable => usable.gameObject.activeInHierarchy))
                 {
                     Stop(WALKING);
                     shaking = true;
@@ -211,8 +212,9 @@ public class MoveCharacter : MonoBehaviour
                 animator.SetBool(CLIMBING, true);
                 transform.position = new Vector3(collider.gameObject.transform.position.x, transform.position.y);
                 verticalSpeed = Mathf.Abs(verticalSpeed) * Input.GetAxis(VERTICAL);
+                StartCoroutine(Wait());
             }
-            else if (Climbing && AbleToLeaveLadder(collider.gameObject))
+            else if (Climbing && AbleToLeaveLadder(collider.gameObject) && !waiting)
             {
                 Stop(CLIMBING);
             }
@@ -238,7 +240,7 @@ public class MoveCharacter : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (Climbing && IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject))
+        if (Climbing && IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject) && !waiting)
         {
             Stop(CLIMBING);
         }
