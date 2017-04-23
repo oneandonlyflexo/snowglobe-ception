@@ -91,6 +91,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &117178164 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1588280341659148, guid: 67e258b4e5cbf425aaab84cb0e75f5aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 492584846}
 --- !u!1001 &180765439
 Prefab:
   m_ObjectHideFlags: 0
@@ -296,6 +301,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1588280341659148, guid: 67e258b4e5cbf425aaab84cb0e75f5aa, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67e258b4e5cbf425aaab84cb0e75f5aa, type: 2}
   m_IsPrefabParent: 0
@@ -400,6 +409,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 921577152}
   easeTime: 0.3
+--- !u!1 &817512729 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1408524657468150, guid: 67e258b4e5cbf425aaab84cb0e75f5aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 492584846}
+--- !u!114 &817512731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 817512729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e6f4f4a0fda0c4abf3f5753a841dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorSpace: {fileID: 117178164}
 --- !u!4 &921577152 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4785019852738028, guid: d8ec77dfed65a496fa48108b14a9460d,
@@ -444,10 +470,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 50702581582995598, guid: d8ec77dfed65a496fa48108b14a9460d,
+    - target: {fileID: 212031744257371006, guid: d8ec77dfed65a496fa48108b14a9460d,
         type: 2}
-      propertyPath: m_GravityScale
-      value: 1
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}

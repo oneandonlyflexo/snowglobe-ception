@@ -92,36 +92,31 @@ public class MoveCharacter : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (IsLadder(collider.gameObject))
-        {
-            if (IsAxisActive(VERTICAL))
-            {
-                // Force them to stop climbing if they reach the top
-                if (Climbing && AbleToLeaveLadder(collider.gameObject))
-                {
-                    StopClimbing();
-                }
+		if (IsLadder (collider.gameObject)) {
+			if (IsAxisActive (VERTICAL)) {
+				// Force them to stop climbing if they reach the top
+				if (Climbing && AbleToLeaveLadder (collider.gameObject)) {
+					StopClimbing ();
+				}
                 // Start climbing
-                else if (!Climbing)
-                {
-                    StopWalking();
-                    animator.SetBool(CLIMBING, true);
-                    transform.position = new Vector3(collider.gameObject.transform.position.x, transform.position.y);
-                }
-            }
-            else if (Climbing && IsAxisActive(HORIZONTAL) && AbleToLeaveLadder(collider.gameObject))
-            {
-                StopClimbing();
-            }
-        }
+                else if (!Climbing) {
+					StopWalking ();
+					animator.SetBool (CLIMBING, true);
+					transform.position = new Vector3 (collider.gameObject.transform.position.x, transform.position.y);
+				}
+			} else if (Climbing && IsAxisActive (HORIZONTAL) && AbleToLeaveLadder (collider.gameObject)) {
+				StopClimbing ();
+			}
+		}
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject))
-        {
-            StopClimbing();
-        }
+		if (IsLadder (collider.gameObject)) {
+			if (AbleToLeaveLadder (collider.gameObject)) {
+				StopClimbing ();
+			}
+		}
     }
 
     private bool IsAxisActive(string axis)
@@ -133,7 +128,12 @@ public class MoveCharacter : MonoBehaviour
     {
         return (gameObject.tag == "Ladder_Bottom") ||
                (gameObject.tag == "Ladder_Top");
-    }
+	}
+
+	private bool IsDoor(GameObject gameObject)
+	{
+		return (gameObject.tag == "DoorTrigger");
+	}
 
     private bool AbleToLeaveLadder(GameObject ladder)
     {
