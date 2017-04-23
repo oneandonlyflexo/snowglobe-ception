@@ -166,11 +166,6 @@ public class MoveCharacter : MonoBehaviour
         return (gameObject.tag == "Ladder_Bottom");
     }
 
-	private bool IsDoor(GameObject gameObject)
-	{
-		return (gameObject.tag == "DoorTrigger");
-	}
-
     private bool AbleToLeaveLadder(GameObject ladder)
     {
         var minY = gameObject.GetComponent<Collider2D>().bounds.min.y;
