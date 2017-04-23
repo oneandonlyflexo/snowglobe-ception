@@ -22,4 +22,6 @@ public class CamFollow : MonoBehaviour
         scratchPos = Vector3.SmoothDamp(transform.position, target.position,ref myVelocity,easeTime * Time.deltaTime);
         transform.position = new Vector3(scratchPos.x, transform.position.y, initialZ);
     }
+
+
 }
