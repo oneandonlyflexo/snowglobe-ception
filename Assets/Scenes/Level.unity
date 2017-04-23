@@ -271,7 +271,7 @@ MonoBehaviour:
   groundSnowOnly: {fileID: 4645728885301002, guid: 2ffea0609d089fb44bdacc45a2d97872,
     type: 2}
   numOfFlakes: 100
-  box: {x: 60, y: 20, z: 0}
+  box: {x: 60, y: 40, z: 0}
 --- !u!114 &1033124305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033124303}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7, y: 4.3, z: 0}
+  m_LocalPosition: {x: 2.7, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -606,3 +606,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f2712959ffbe4513bcde4c8babfc734, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2067539380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2067539382}
+  - component: {fileID: 2067539381}
+  m_Layer: 0
+  m_Name: Grabber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &2067539381
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067539380}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -70.665535, y: -34.32744}
+  - {x: 109.14547, y: -33.825703}
+--- !u!4 &2067539382
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067539380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7, y: 4.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
