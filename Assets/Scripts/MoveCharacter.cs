@@ -15,17 +15,33 @@ public class MoveCharacter : MonoBehaviour
     public bool isDog = false;
     public bool touchingDoor = false;
 
+    public UseObjects point;
+    public UseObjects sneeze;
+
     public float verticalSpeed;
     public float horizontalSpeed;
     public Rigidbody2D rb;
     public Animator animator;
+    public float waitTimeOnSwitch;
 
     public bool isInside;
 
-    private bool interacting;
+    private bool shaking;
+    private bool sneezing;
+    private bool pointing;
+    private bool waiting;
+
     private bool Walking { get { return animator.GetBool(WALKING); } }
     private bool Climbing { get { return animator.GetBool(CLIMBING); } }
-    
+
+    private bool PerformingBlockingAnimation
+    {
+        get
+        {
+            return sneezing || shaking || pointing || Climbing || waiting;
+        }
+    }
+
     [SerializeField]
     float timeBetweenPuffs = 3f;
     float timeSinceLastPuff = 0f;
@@ -33,9 +49,24 @@ public class MoveCharacter : MonoBehaviour
     public Transform prefabFootSnow;
     public Transform anchor;
 
-    public void StopSneezing()
+    public void AnimationComplete(string animationName)
     {
-        interacting = false;
+        if (animationName == "Sneezing")
+        {
+            sneezing = false;
+        }
+        else if (animationName == "Point")
+        {
+            pointing = false;
+        }
+        else if (animationName == "ShakeGlobe")
+        {
+            shaking = false;
+        }
+        else if (animationName == "All")
+        {
+            shaking = sneezing = pointing = false;
+        }
     }
 
     private void Awake()
@@ -43,14 +74,30 @@ public class MoveCharacter : MonoBehaviour
         EventManager.Listen("ToggleIndoors", ToggleIndoorOutDoor);
     }
 
+    private void OnEnable()
+    {
+        animator.SetTrigger("SwitchCharacters");
+        StartCoroutine(Wait());
+    }
+
     private void OnDisable()
     {
-        EventManager.StopListen("ToggleIndoors", ToggleIndoorOutDoor);
+        animator.SetTrigger("SwitchCharacters");
     }
 
     private void ToggleIndoorOutDoor()
     {
-        isInside = !isInside;
+        // lol
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (touchingDoor)
+        {
+            isInside = !isInside;
+        }
+        else
+        {
+            spriteRenderer.sortingOrder = (spriteRenderer.sortingOrder == 4) ? -1 : 4;
+        }
 
         //resets for when colliders disappear before being able to send exit
         touchingDoor = false;
@@ -79,29 +126,28 @@ public class MoveCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!interacting && !Climbing)
+        if (!PerformingBlockingAnimation)
         {
-			if (Input.GetButtonDown ("Sneeze")) {
-				Stop (WALKING);
+            if (Input.GetButtonDown("Use"))
+            {
+                Stop(WALKING);
 
-				interacting = true;
-				animator.SetTrigger ("Sneeze");
-				charSoundManager.PlaySneeze ();
+                if (!touchingDoor)
+                {
+                    pointing = true;
+                    animator.SetTrigger("Point");
+                    point.UseAll();
 
-			} else if (Input.GetButtonDown ("Use")) {
-				if (!touchingDoor) {
-					if (!isDog) {
-						Stop (WALKING);
-
-						interacting = true;
-						animator.SetTrigger ("Point");
-					}
-				} else {
-					Stop (WALKING);
-
-					EventManager.Dispatch ("ToggleIndoors");
-				}
-			}
+                    if (isDog)
+                    {
+                        charSoundManager.PlaySneeze();
+                    }
+                }
+                else
+                {
+                    EventManager.Dispatch("ToggleIndoors");
+                }
+            }
             else if (IsAxisActive(HORIZONTAL))
             {
                 var moveHorizontal = Input.GetAxis(HORIZONTAL);
@@ -217,6 +263,11 @@ public class MoveCharacter : MonoBehaviour
 
         return (minY <= ladderBounds.min.y) || (minY >= ladderBounds.max.y);
     }
-    
 
+    private System.Collections.IEnumerator Wait()
+    {
+        waiting = true;
+        yield return new WaitForSeconds(waitTimeOnSwitch);
+        waiting = false;
+    }
 }
