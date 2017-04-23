@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 70662498038952068}
   - component: {fileID: 114266810743143994}
   - component: {fileID: 95558231403451412}
+  - component: {fileID: 82674804482158340}
+  - component: {fileID: 114633172816746972}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -127,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1646556064811940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.62, y: -14.57, z: 0}
+  m_LocalPosition: {x: -15.4, y: -14.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4900217121007980}
@@ -239,6 +241,86 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.25, y: 4.25}
   m_Direction: 0
+--- !u!82 &82674804482158340
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646556064811940}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 45427b5463b9b6a4399471ef0ad8c3f4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95558231403451412
 Animator:
   serializedVersion: 3
@@ -277,6 +359,32 @@ MonoBehaviour:
   prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
     type: 2}
   anchor: {fileID: 4874871612663792}
+--- !u!114 &114633172816746972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646556064811940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bab6311956aff641b70d6405d7a670a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowClips:
+  - {fileID: 8300000, guid: 320f5ecef766c904c830c4b88aa6b665, type: 3}
+  - {fileID: 8300000, guid: de8936c6f87768f43b32bcc4871476b9, type: 3}
+  - {fileID: 8300000, guid: 08da15030fd578047afe162b659f8c89, type: 3}
+  - {fileID: 8300000, guid: 63ccaf590f207ed47baa51f1310d00e0, type: 3}
+  - {fileID: 8300000, guid: 5b35fc0e311543641818adc7ea31d90f, type: 3}
+  - {fileID: 8300000, guid: 28430511bb12e344e94b5d2084ba8318, type: 3}
+  woodClips:
+  - {fileID: 8300000, guid: 5c3cd9598cdedb5408f76911db204c28, type: 3}
+  - {fileID: 8300000, guid: ad51353597b0be4478435f42f41cd315, type: 3}
+  - {fileID: 8300000, guid: 73771c062ddeca84d9cb1aa4ec65b485, type: 3}
+  - {fileID: 8300000, guid: 2f49312e33a949444af3b75493019f0a, type: 3}
+  - {fileID: 8300000, guid: 3aa66b0ec4c9a074b953be48f651130c, type: 3}
+  - {fileID: 8300000, guid: 6e7667b2cdd09ab41b7ed099ba071624, type: 3}
+  sneezeClip: {fileID: 8300000, guid: 45427b5463b9b6a4399471ef0ad8c3f4, type: 3}
 --- !u!212 &212031744257371006
 SpriteRenderer:
   m_ObjectHideFlags: 1
