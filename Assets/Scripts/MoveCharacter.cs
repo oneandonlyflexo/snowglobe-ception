@@ -9,14 +9,14 @@ public class MoveCharacter : MonoBehaviour
     private const string HORIZONTAL = "Horizontal";
     private const string TOP_OF_LADDER = "TopOfLadder";
     private const string BOTTOM_OF_LADDER = "BottomOfLadder";
-    public const string DOOR_TRIGGER_NAME = "DoorTrigger";
+    private const string DOOR_TRIGGER_NAME = "DoorTrigger";
 
     public DudeSounds charSoundManager;
     public bool isDog = false;
     public bool touchingDoor = false;
 
     public UseObjects point;
-    public UseObjects sneeze;
+    public UseObjects shake;
 
     public float verticalSpeed;
     public float horizontalSpeed;
@@ -146,6 +146,21 @@ public class MoveCharacter : MonoBehaviour
                 else
                 {
                     EventManager.Dispatch("ToggleIndoors");
+                }
+            }
+            else if (Input.GetButtonDown("Shake"))
+            {
+                if (shake.usables.Count > 0)
+                {
+                    shaking = true;
+                    animator.SetTrigger("ShakeGlobe");
+                    shake.UseAll();
+                }
+                else
+                {
+                    sneezing = true;
+                    animator.SetTrigger("Sneeze");
+                    charSoundManager.PlaySneeze();
                 }
             }
             else if (IsAxisActive(HORIZONTAL))

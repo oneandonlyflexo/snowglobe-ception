@@ -424,7 +424,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4785019852738028, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -25.5
+      value: -33.5
       objectReference: {fileID: 0}
     - target: {fileID: 4785019852738028, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -479,10 +479,13 @@ Prefab:
       propertyPath: actions.m_PersistentCalls.m_Calls.Array.data[8].m_Target
       value: 
       objectReference: {fileID: 785833436}
-    - target: {fileID: 114266810743143994, guid: d8ec77dfed65a496fa48108b14a9460d,
-        type: 2}
-      propertyPath: waitTimeOnSwitch
-      value: 0.1
+    - target: {fileID: 1667762806487994, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995252945715742, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}
@@ -589,11 +592,11 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -0.35120484, y: 0.037038803}
-  - {x: 0.35270473, y: 0.05521965}
-  - {x: 0.35333824, y: 33.812523}
-  - {x: -0.35217178, y: 33.874657}
-  - {x: -0.35138035, y: 0.00044250488}
+  - {x: -0.5776905, y: -0.11160469}
+  - {x: 0.3858065, y: -0.09342384}
+  - {x: 0.3829556, y: 33.961166}
+  - {x: -0.5664621, y: 34.0233}
+  - {x: -0.5656705, y: 0.00044441223}
 --- !u!4 &1416566114
 Transform:
   m_ObjectHideFlags: 0
