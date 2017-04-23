@@ -7,6 +7,8 @@ public class MoveCharacter : MonoBehaviour
     private const string CLIMBING = "Climbing";
     private const string VERTICAL = "Vertical";
     private const string HORIZONTAL = "Horizontal";
+    private const string TOP_OF_LADDER = "TopOfLadder";
+    private const string BOTTOM_OF_LADDER = "BottomOfLadder";
 
     public float verticalSpeed;
     public float horizontalSpeed;
@@ -44,29 +46,29 @@ public class MoveCharacter : MonoBehaviour
         {
             timeSinceLastPuff += Time.deltaTime;
         }
+
+        if (Climbing)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + (verticalSpeed * Time.deltaTime));
+        }
     }
 
     private void FixedUpdate()
     {
-        var moveVertical = Input.GetAxis(VERTICAL);
-        var moveHorizontal = Input.GetAxis(HORIZONTAL);
-
-        if (Climbing)
-        {
-            rb.velocity = (new Vector3(0.0f, moveVertical)) * verticalSpeed;
-        }
-        else if (!sneezing)
+        if (!sneezing && !Climbing)
         {
             if (IsAxisActive("Use"))
             {
-                StopWalking();
+                Stop(WALKING);
 
                 sneezing = true;
                 animator.SetTrigger("Sneeze");
             }
-            else if (!Mathf.Approximately(moveHorizontal, 0.0f))
+            else if (IsAxisActive(HORIZONTAL))
             {
+                var moveHorizontal = Input.GetAxis(HORIZONTAL);
                 var movement = new Vector3(moveHorizontal, 0.0f);
+
                 rb.velocity = movement * horizontalSpeed;
                 animator.SetBool(WALKING, true);
 
@@ -74,53 +76,69 @@ public class MoveCharacter : MonoBehaviour
             }
             else
             {
-                StopWalking();
+                Stop(WALKING);
             }
         }
     }
 
-    private void StopWalking()
+    private void Stop(string animatorParameter)
     {
         rb.velocity = Vector3.zero;
-        animator.SetBool(WALKING, false);
-    }
-
-    private void StopClimbing()
-    {
-        animator.SetBool(CLIMBING, false);
+        animator.SetBool(animatorParameter, false);
     }
 
     private void OnTriggerStay2D(Collider2D collider)
     {
+        if (IsTopOfLadder(collider.gameObject))
+        {
+            animator.SetBool(TOP_OF_LADDER, true);
+        }
+
         if (IsLadder(collider.gameObject))
         {
-            if (IsAxisActive(VERTICAL))
+            var verticalInput = Input.GetAxis(VERTICAL);
+
+            if (!Climbing && IsAxisActive(VERTICAL) &&
+                ((verticalInput > 0 && animator.GetBool(BOTTOM_OF_LADDER)) ||
+                 (verticalInput < 0 && animator.GetBool(TOP_OF_LADDER))))
             {
-                // Force them to stop climbing if they reach the top
-                if (Climbing && AbleToLeaveLadder(collider.gameObject))
-                {
-                    StopClimbing();
-                }
-                // Start climbing
-                else if (!Climbing)
-                {
-                    StopWalking();
-                    animator.SetBool(CLIMBING, true);
-                    transform.position = new Vector3(collider.gameObject.transform.position.x, transform.position.y);
-                }
+                Stop(WALKING);
+                animator.SetBool(CLIMBING, true);
+                transform.position = new Vector3(collider.gameObject.transform.position.x, transform.position.y);
+                verticalSpeed = Mathf.Abs(verticalSpeed) * Input.GetAxis(VERTICAL);
             }
-            else if (Climbing && IsAxisActive(HORIZONTAL) && AbleToLeaveLadder(collider.gameObject))
+            else if (Climbing && AbleToLeaveLadder(collider.gameObject))
             {
-                StopClimbing();
+                Stop(CLIMBING);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (IsTopOfLadder(collider.gameObject))
+        {
+            animator.SetBool(TOP_OF_LADDER, true);
+        }
+        else if (IsBottomOfLadder(collider.gameObject))
+        {
+            animator.SetBool(BOTTOM_OF_LADDER, true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject))
+        if (Climbing && IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject))
         {
-            StopClimbing();
+            Stop(CLIMBING);
+        }
+        else if (IsTopOfLadder(collider.gameObject))
+        {
+            animator.SetBool(TOP_OF_LADDER, false);
+        }
+        else if (IsBottomOfLadder(collider.gameObject))
+        {
+            animator.SetBool(BOTTOM_OF_LADDER, false);
         }
     }
 
@@ -131,16 +149,24 @@ public class MoveCharacter : MonoBehaviour
 
     private bool IsLadder(GameObject gameObject)
     {
-        return (gameObject.tag == "Ladder_Bottom") ||
-               (gameObject.tag == "Ladder_Top");
+        return (gameObject.tag == "Ladder");
+    }
+
+    private bool IsTopOfLadder(GameObject gameObject)
+    {
+        return (gameObject.tag == "Ladder_Top");
+    }
+
+    private bool IsBottomOfLadder(GameObject gameObject)
+    {
+        return (gameObject.tag == "Ladder_Bottom");
     }
 
     private bool AbleToLeaveLadder(GameObject ladder)
     {
-        var bounds = gameObject.GetComponent<Collider2D>().bounds;
+        var minY = gameObject.GetComponent<Collider2D>().bounds.min.y;
         var ladderBounds = ladder.GetComponent<Collider2D>().bounds;
 
-        return (ladder.tag == "Ladder_Top" && (bounds.min.y >= ladderBounds.min.y)) ||
-               (ladder.tag == "Ladder_Bottom" && (bounds.min.y <= ladderBounds.min.y));
+        return (minY <= ladderBounds.min.y) || (minY >= ladderBounds.max.y);
     }
 }
