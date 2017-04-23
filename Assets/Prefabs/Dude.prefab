@@ -161,7 +161,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1216692580358210}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b985ead491d8aaa429c7d658ae4b479a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -0.44634724}
@@ -175,7 +175,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1329768650763378}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b985ead491d8aaa429c7d658ae4b479a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0.032012843, y: -2.1049662}
@@ -228,8 +228,9 @@ MonoBehaviour:
   rb: {fileID: 50702581582995598}
   animator: {fileID: 95558231403451412}
   timeBetweenPuffs: 3
-  prefabFootSnow: {fileID: 0}
-  anchor: {fileID: 0}
+  prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
+    type: 2}
+  anchor: {fileID: 4874871612663792}
 --- !u!212 &212031744257371006
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -260,7 +261,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: b468e64f94f594eb490531a33c0d02d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
