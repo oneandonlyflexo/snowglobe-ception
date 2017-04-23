@@ -26,7 +26,7 @@ public class RBMoveParticles : MonoBehaviour
         {
             if (rb)
             {
-                Debug.LogError(">>" + other.name);
+                //Debug.LogError(">>" + other.name);
                 // Debug.LogError("Foudn RB");
                 // Debug.LogError(">> RB???? " + collisionEvents[i].colliderComponent.GetComponent<Rigidbody>() != null);
                 Vector3 pos = collisionEvents[i].intersection;
