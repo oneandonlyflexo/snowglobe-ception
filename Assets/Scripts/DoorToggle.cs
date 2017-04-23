@@ -8,11 +8,6 @@ public class DoorToggle : MonoBehaviour {
 
 	private float timeDoorInactive = 0;
 
-	// Use this for initialization
-	private void Start () {
-		
-	}
-
 	private void Update() {
 		if (timeDoorInactive > 0) {
 			timeDoorInactive -= Time.deltaTime;
@@ -23,7 +18,9 @@ public class DoorToggle : MonoBehaviour {
 		if (timeDoorInactive <= 0 && IsAxisActive ("Use")) {
 			timeDoorInactive = 1;
 			DoorSpace.SetActive (!DoorSpace.activeSelf);
-		}
+
+            EventManager.Dispatch("ToggleIndoors");
+        }
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {
