@@ -8,11 +8,6 @@ public class DoorToggle : MonoBehaviour {
 
 	private float timeDoorInactive = 0;
 
-	// Use this for initialization
-	private void Start () {
-		
-	}
-
 	private void Update() {
 		if (timeDoorInactive > 0) {
 			timeDoorInactive -= Time.deltaTime;
@@ -24,13 +19,8 @@ public class DoorToggle : MonoBehaviour {
 			timeDoorInactive = 1;
 			DoorSpace.SetActive (!DoorSpace.activeSelf);
 
-            var mcScript = collider.GetComponent<MoveCharacter>();
-            if (mcScript != null)
-            {
-                mcScript.isInside = !mcScript.isInside;
-            }
-
-		}
+            UpdateToonsSpacialKnowledge(collider);
+        }
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {
@@ -41,4 +31,13 @@ public class DoorToggle : MonoBehaviour {
 	{
 		return !Mathf.Approximately(Input.GetAxis(axis), 0.0f);
 	}
+
+    private void UpdateToonsSpacialKnowledge(Collider2D collider)
+    {
+        var mcScript = collider.GetComponent<MoveCharacter>();
+        if (mcScript != null)
+        {
+            mcScript.isInside = !mcScript.isInside;
+        }
+    }
 }

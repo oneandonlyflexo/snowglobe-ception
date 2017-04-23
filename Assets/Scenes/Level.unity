@@ -298,6 +298,7 @@ Prefab:
     - target: {fileID: 1588280341659148, guid: 67e258b4e5cbf425aaab84cb0e75f5aa, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212036741477470526, guid: 67e258b4e5cbf425aaab84cb0e75f5aa,
         type: 2}
       propertyPath: m_SortingOrder

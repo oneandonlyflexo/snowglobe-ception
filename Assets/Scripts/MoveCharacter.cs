@@ -15,11 +15,12 @@ public class MoveCharacter : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
+    public bool isInside;
+
     private bool sneezing;
     private bool Walking { get { return animator.GetBool(WALKING); } }
     private bool Climbing { get { return animator.GetBool(CLIMBING); } }
-    public bool isInside; //not hooked up yet
-
+    
     [SerializeField]
     float timeBetweenPuffs = 3f;
     float timeSinceLastPuff = 0f;
