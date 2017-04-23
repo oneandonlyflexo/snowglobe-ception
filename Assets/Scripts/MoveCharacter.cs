@@ -4,9 +4,6 @@ public class MoveCharacter : MonoBehaviour
 {
     private const string WALKING = "Walking";
 
-    public Transform prefabFootSnow;
-    public Transform anchor;
-
     public float speed;
     public Rigidbody2D rb;
     public Animator animator;
@@ -14,14 +11,17 @@ public class MoveCharacter : MonoBehaviour
     private bool sneezing;
     private bool Walking { get { return animator.GetBool(WALKING); } }
 
+    [SerializeField]
+    float timeBetweenPuffs = 3f;
+    float timeSinceLastPuff = 0f;
+
+    public Transform prefabFootSnow;
+    public Transform anchor;
+
     public void StopSneezing()
     {
         sneezing = false;
     }
-
-    float timeSinceLastPuff = 0f;
-    [SerializeField]
-    float timeBetweenPuffs = 3f;
 
     private void Update()
     {

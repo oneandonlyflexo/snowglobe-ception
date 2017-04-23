@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4874871612663792}
   m_Layer: 8
-  m_Name: anchor
+  m_Name: FootSnowAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,12 +223,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c203e5f3337b4a01960be883300abe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
-    type: 2}
-  anchor: {fileID: 4874871612663792}
   speed: 8
   rb: {fileID: 50702581582995598}
   animator: {fileID: 95558231403451412}
+  timeBetweenPuffs: 3
+  prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
+    type: 2}
+  anchor: {fileID: 4874871612663792}
 --- !u!212 &212031744257371006
 SpriteRenderer:
   m_ObjectHideFlags: 1
