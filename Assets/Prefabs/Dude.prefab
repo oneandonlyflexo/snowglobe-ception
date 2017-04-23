@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4669067470957342}
   - component: {fileID: 61749486095656002}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI Enabler
   m_TagString: UIEnabler
   m_Icon: {fileID: 0}
