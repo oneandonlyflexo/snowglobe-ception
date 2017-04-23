@@ -289,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec0b304c68c9684eabec1f15f5cc472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
 --- !u!1001 &706278899
 Prefab:
   m_ObjectHideFlags: 0
@@ -331,6 +333,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad543b98c7f04140a355e52f3ebe541, type: 2}
   m_IsPrefabParent: 0
+>>>>>>> master
 --- !u!4 &921577152 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4785019852738028, guid: d8ec77dfed65a496fa48108b14a9460d,
