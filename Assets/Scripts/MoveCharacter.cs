@@ -81,7 +81,7 @@ public class MoveCharacter : MonoBehaviour
     {
         if (!sneezing && !Climbing)
         {
-            if (IsAxisActive("Use"))
+            if (Input.GetButtonDown("Use"))
             {
                 Stop(WALKING);
 
