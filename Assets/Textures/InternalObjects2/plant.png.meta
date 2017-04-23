@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: 0f6ce3f75b3d284419f6fdbec272892f
-timeCreated: 1492965152
+guid: 2eb637b1d2ef12549ab111ef6878b8a6
+timeCreated: 1492972270
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: snowGlobe_0
-    21300002: snowGlobe_1
-    21300004: snowGlobe_2
-    21300006: snowGlobe_3
+    21300000: plant_0
+    21300002: plant_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -44,7 +42,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
@@ -82,7 +80,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snowGlobe_0
+      name: plant_0
       rect:
         serializedVersion: 2
         x: 0
@@ -95,36 +93,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: snowGlobe_1
+      name: plant_1
       rect:
         serializedVersion: 2
         x: 20
-        y: 0
-        width: 20
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: snowGlobe_2
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 20
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: snowGlobe_3
-      rect:
-        serializedVersion: 2
-        x: 60
         y: 0
         width: 20
         height: 28
