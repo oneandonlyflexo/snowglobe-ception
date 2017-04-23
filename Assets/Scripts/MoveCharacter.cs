@@ -134,9 +134,11 @@ public class MoveCharacter : MonoBehaviour
 
                 if (!touchingDoor)
                 {
+                    Stop(WALKING);
                     pointing = true;
                     animator.SetTrigger("Point");
                     point.UseAll();
+                    StartCoroutine(Wait());
 
                     if (isDog)
                     {
@@ -152,15 +154,19 @@ public class MoveCharacter : MonoBehaviour
             {
                 if (shake.usables.Count > 0)
                 {
+                    Stop(WALKING);
                     shaking = true;
                     animator.SetTrigger("ShakeGlobe");
                     shake.UseAll();
+                    StartCoroutine(Wait());
                 }
                 else
                 {
+                    Stop(WALKING);
                     sneezing = true;
                     animator.SetTrigger("Sneeze");
                     charSoundManager.PlaySneeze();
+                    StartCoroutine(Wait());
                 }
             }
             else if (IsAxisActive(HORIZONTAL))
