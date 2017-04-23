@@ -22,7 +22,7 @@ public class MoveCharacter : MonoBehaviour
 
     public bool isInside;
 
-    private bool sneezing;
+    private bool interacting;
     private bool Walking { get { return animator.GetBool(WALKING); } }
     private bool Climbing { get { return animator.GetBool(CLIMBING); } }
     
@@ -35,7 +35,7 @@ public class MoveCharacter : MonoBehaviour
 
     public void StopSneezing()
     {
-        sneezing = false;
+        interacting = false;
     }
 
     private void Awake()
@@ -79,22 +79,29 @@ public class MoveCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!sneezing && !Climbing)
+        if (!interacting && !Climbing)
         {
-            if (Input.GetButtonDown("Use"))
-            {
-                Stop(WALKING);
+			if (Input.GetButtonDown ("Sneeze")) {
+				Stop (WALKING);
 
-                if (!touchingDoor)
-                {
-                    sneezing = true;
-                    animator.SetTrigger("Sneeze");
-                    charSoundManager.PlaySneeze();
-                }else
-                {
-                    EventManager.Dispatch("ToggleIndoors");
-                }
-            }
+				interacting = true;
+				animator.SetTrigger ("Sneeze");
+				charSoundManager.PlaySneeze ();
+
+			} else if (Input.GetButtonDown ("Use")) {
+				if (!touchingDoor) {
+					if (!isDog) {
+						Stop (WALKING);
+
+						interacting = true;
+						animator.SetTrigger ("Point");
+					}
+				} else {
+					Stop (WALKING);
+
+					EventManager.Dispatch ("ToggleIndoors");
+				}
+			}
             else if (IsAxisActive(HORIZONTAL))
             {
                 var moveHorizontal = Input.GetAxis(HORIZONTAL);
