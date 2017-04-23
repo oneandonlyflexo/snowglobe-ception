@@ -349,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c203e5f3337b4a01960be883300abe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charSoundManager: {fileID: 114633172816746972}
   isDog: 0
   verticalSpeed: 10
   horizontalSpeed: 8
@@ -371,19 +372,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snowClips:
-  - {fileID: 8300000, guid: 320f5ecef766c904c830c4b88aa6b665, type: 3}
-  - {fileID: 8300000, guid: de8936c6f87768f43b32bcc4871476b9, type: 3}
-  - {fileID: 8300000, guid: 08da15030fd578047afe162b659f8c89, type: 3}
-  - {fileID: 8300000, guid: 63ccaf590f207ed47baa51f1310d00e0, type: 3}
-  - {fileID: 8300000, guid: 5b35fc0e311543641818adc7ea31d90f, type: 3}
-  - {fileID: 8300000, guid: 28430511bb12e344e94b5d2084ba8318, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   woodClips:
-  - {fileID: 8300000, guid: 5c3cd9598cdedb5408f76911db204c28, type: 3}
-  - {fileID: 8300000, guid: ad51353597b0be4478435f42f41cd315, type: 3}
-  - {fileID: 8300000, guid: 73771c062ddeca84d9cb1aa4ec65b485, type: 3}
-  - {fileID: 8300000, guid: 2f49312e33a949444af3b75493019f0a, type: 3}
-  - {fileID: 8300000, guid: 3aa66b0ec4c9a074b953be48f651130c, type: 3}
-  - {fileID: 8300000, guid: 6e7667b2cdd09ab41b7ed099ba071624, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sneezeClip: {fileID: 8300000, guid: 45427b5463b9b6a4399471ef0ad8c3f4, type: 3}
 --- !u!212 &212031744257371006
 SpriteRenderer:

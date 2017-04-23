@@ -19,6 +19,7 @@ public class DoorToggle : MonoBehaviour
 
     private void ToggleIndoorOutDoor()
     {//resets for when colliders disappear before being able to send exit
+
         touchingDoor = false;
     }
 
@@ -26,6 +27,7 @@ public class DoorToggle : MonoBehaviour
     {       
         if (IsAxisActive("Use") && touchingDoor)
         {
+            Debug.LogError(">> OUT: " + "ToggleIndoors");
             EventManager.Dispatch("ToggleIndoors");
         }
     }

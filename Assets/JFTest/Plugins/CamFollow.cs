@@ -14,6 +14,12 @@ public class CamFollow : MonoBehaviour
 
     void Start()
     {
+        var Player  = GameObject.Find("Dude");
+        if(Player == null)
+            Player = GameObject.Find("Queequeg");
+
+        target = Player.transform;
+
         initialZ = transform.position.z;
     }
 

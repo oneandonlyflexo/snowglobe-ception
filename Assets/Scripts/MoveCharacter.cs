@@ -10,6 +10,7 @@ public class MoveCharacter : MonoBehaviour
     private const string TOP_OF_LADDER = "TopOfLadder";
     private const string BOTTOM_OF_LADDER = "BottomOfLadder";
 
+    public DudeSounds charSoundManager;
     public bool isDog = false;
 
     public float verticalSpeed;
@@ -81,6 +82,7 @@ public class MoveCharacter : MonoBehaviour
 
                 sneezing = true;
                 animator.SetTrigger("Sneeze");
+                charSoundManager.PlaySneeze();
             }
             else if (IsAxisActive(HORIZONTAL))
             {
