@@ -4,6 +4,9 @@ public class MoveCharacter : MonoBehaviour
 {
     private const string WALKING = "Walking";
 
+    public Transform prefabFootSnow;
+    public Transform anchor;
+
     public float speed;
     public Rigidbody2D rb;
     public Animator animator;
@@ -14,6 +17,26 @@ public class MoveCharacter : MonoBehaviour
     public void StopSneezing()
     {
         sneezing = false;
+    }
+
+    float timeSinceLastPuff = 0f;
+    [SerializeField]
+    float timeBetweenPuffs = 3f;
+
+    private void Update()
+    {
+        if (timeSinceLastPuff >= timeBetweenPuffs)
+        {
+            if (Walking && Random.Range(0.0f, 10.0f) > 7f)
+            {
+                Instantiate(prefabFootSnow, anchor.position, Quaternion.identity);
+                timeSinceLastPuff = 0;
+            }
+        }
+        else
+        {
+            timeSinceLastPuff += Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()

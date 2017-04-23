@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RBMoveParticles : MonoBehaviour
 {
-
+   // public prefabFootSnow;
 
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
-
+    public float forceMultiplier = 10f;
     void Start()
     {
         part = GetComponent<ParticleSystem>();
@@ -20,16 +20,23 @@ public class RBMoveParticles : MonoBehaviour
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-        int i = 0;        
-
+        int i = 0;
+       
         while (i < numCollisionEvents)
         {
             if (rb)
             {
-               // Debug.LogError("Foudn RB");
+                Debug.LogError(">>" + other.name);
+                // Debug.LogError("Foudn RB");
+                // Debug.LogError(">> RB???? " + collisionEvents[i].colliderComponent.GetComponent<Rigidbody>() != null);
                 Vector3 pos = collisionEvents[i].intersection;
-                Vector3 force = collisionEvents[i].velocity * 10;
-                rb.AddForce(force);
+
+                //Instantiate(prefabFootSnow, pos, Quaternion.identity);
+
+                //Vector3 force = collisionEvents[i].velocity * forceMultiplier;
+
+               // collisionEvents[i].colliderComponent.GetComponent<Rigidbody>().AddForce(force);
+               // rb.AddForce(force);
             }
             i++;
         }
