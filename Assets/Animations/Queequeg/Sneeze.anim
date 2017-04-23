@@ -72,9 +72,9 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
   m_Events:
-  - time: 0.35
-    functionName: StopSneezing
-    data: 
+  - time: 0.33333334
+    functionName: AnimationComplete
+    data: All
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
