@@ -226,7 +226,7 @@ MonoBehaviour:
   speed: 8
   rb: {fileID: 50702581582995598}
   animator: {fileID: 95558231403451412}
-  timeBetweenPuffs: 3
+  timeBetweenPuffs: 0.5
   prefabFootSnow: {fileID: 4825267651494940, guid: e81d85fc0f5c94f43a246fc099549728,
     type: 2}
   anchor: {fileID: 4874871612663792}
