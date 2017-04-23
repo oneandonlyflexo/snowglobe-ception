@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b6ebf479bba4dca981f4689805651f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToMatch: Shake
+  tagToMatch: Shake_Dog
   usables: []
 --- !u!114 &114730854562131918
 MonoBehaviour:

@@ -10,6 +10,7 @@ TagManager:
   - UIEnabler
   - Usable
   - Shake
+  - Shake_Dog
   layers:
   - Default
   - TransparentFX
