@@ -8,6 +8,8 @@ TagManager:
   - Ladder
   - Ladder_Bottom
   - UIEnabler
+  - Usable
+  - Shake
   layers:
   - Default
   - TransparentFX

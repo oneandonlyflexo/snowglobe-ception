@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 public class MoveCharacter : MonoBehaviour
@@ -9,14 +10,14 @@ public class MoveCharacter : MonoBehaviour
     private const string HORIZONTAL = "Horizontal";
     private const string TOP_OF_LADDER = "TopOfLadder";
     private const string BOTTOM_OF_LADDER = "BottomOfLadder";
-    public const string DOOR_TRIGGER_NAME = "DoorTrigger";
+    private const string DOOR_TRIGGER_NAME = "DoorTrigger";
 
     public DudeSounds charSoundManager;
     public bool isDog = false;
     public bool touchingDoor = false;
 
     public UseObjects point;
-    public UseObjects sneeze;
+    public UseObjects shake;
 
     public float verticalSpeed;
     public float horizontalSpeed;
@@ -134,9 +135,11 @@ public class MoveCharacter : MonoBehaviour
 
                 if (!touchingDoor)
                 {
+                    Stop(WALKING);
                     pointing = true;
                     animator.SetTrigger("Point");
                     point.UseAll();
+                    StartCoroutine(Wait());
 
                     if (isDog)
                     {
@@ -146,6 +149,25 @@ public class MoveCharacter : MonoBehaviour
                 else
                 {
                     EventManager.Dispatch("ToggleIndoors");
+                }
+            }
+            else if (Input.GetButtonDown("Shake"))
+            {
+                if ((shake.usables.Count > 0) && shake.usables.All(usable => usable.gameObject.activeInHierarchy))
+                {
+                    Stop(WALKING);
+                    shaking = true;
+                    animator.SetTrigger("ShakeGlobe");
+                    shake.UseAll();
+                    StartCoroutine(Wait());
+                }
+                else
+                {
+                    Stop(WALKING);
+                    sneezing = true;
+                    animator.SetTrigger("Sneeze");
+                    charSoundManager.PlaySneeze();
+                    StartCoroutine(Wait());
                 }
             }
             else if (IsAxisActive(HORIZONTAL))
@@ -190,8 +212,9 @@ public class MoveCharacter : MonoBehaviour
                 animator.SetBool(CLIMBING, true);
                 transform.position = new Vector3(collider.gameObject.transform.position.x, transform.position.y);
                 verticalSpeed = Mathf.Abs(verticalSpeed) * Input.GetAxis(VERTICAL);
+                StartCoroutine(Wait());
             }
-            else if (Climbing && AbleToLeaveLadder(collider.gameObject))
+            else if (Climbing && AbleToLeaveLadder(collider.gameObject) && !waiting)
             {
                 Stop(CLIMBING);
             }
@@ -217,7 +240,7 @@ public class MoveCharacter : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (Climbing && IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject))
+        if (Climbing && IsLadder(collider.gameObject) && AbleToLeaveLadder(collider.gameObject) && !waiting)
         {
             Stop(CLIMBING);
         }
