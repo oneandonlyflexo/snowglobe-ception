@@ -9,7 +9,7 @@ public class GroundSnowPlotter : MonoBehaviour
     Transform groundSnowPrefab;
 
     [SerializeField]
-    int numOfFlakes = 500;
+    int numOfFlakes;
 
     [SerializeField]
     Vector3 box;
@@ -24,7 +24,6 @@ public class GroundSnowPlotter : MonoBehaviour
         //force
         box = new Vector3(120,40,0);
         forceMultiplier = 1f;
-        numOfFlakes = 500;
 
         EventManager.Listen("ShakeSnowGlobe", ToggleIndoorOutDoor);
     }
@@ -68,9 +67,9 @@ public class GroundSnowPlotter : MonoBehaviour
                 );
 
             var  flake = Instantiate(
-                groundSnowPrefab, 
+                groundSnowPrefab,
                 tmpv3,
-                Quaternion.identity  
+                Quaternion.identity
                 ) as Transform;
 
             mySpecialFlakes.Add(flake);

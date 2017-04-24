@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4737403809053002}
   - component: {fileID: 212279583795718914}
-  - component: {fileID: 114374912584284108}
   - component: {fileID: 114705016798540246}
   m_Layer: 0
   m_Name: Plotter
@@ -42,18 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114374912584284108
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566093561953434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f498a38129df2e846bd119d2c4e37b2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seconds: 3
 --- !u!114 &114705016798540246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,8 +54,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundSnowPrefab: {fileID: 4645728885301002, guid: 2ffea0609d089fb44bdacc45a2d97872,
     type: 2}
-  numOfFlakes: 100
+  numOfFlakes: 1000
   box: {x: 60, y: 40, z: 0}
+  forceMultiplier: 1
+  mySpecialFlakes: []
 --- !u!212 &212279583795718914
 SpriteRenderer:
   m_ObjectHideFlags: 1

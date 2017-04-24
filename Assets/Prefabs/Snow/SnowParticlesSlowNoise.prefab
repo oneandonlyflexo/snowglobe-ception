@@ -553,7 +553,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     type: 12
-    radius: 40
+    radius: 82.62638
     angle: 68.66766
     length: 1
     boxX: 1

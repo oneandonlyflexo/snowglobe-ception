@@ -159,9 +159,9 @@ public class MoveCharacter : MonoBehaviour
                     shaking = true;
                     animator.SetTrigger("ShakeGlobe");
                     shake.UseAll();
-                    StartCoroutine(Wait());
-
+                    charSoundManager.PlayGlobePickup();
                     EventManager.Dispatch("ShakeSnowGlobe");
+                    StartCoroutine(Wait());
                 }
                 else
                 {
