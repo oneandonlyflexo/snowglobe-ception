@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198866774225290200}
   - component: {fileID: 199282770051849468}
   - component: {fileID: 223271081470363794}
+  - component: {fileID: 114713842507218972}
   m_Layer: 0
   m_Name: SnowParticlesSlowNoise
   m_TagString: Untagged
@@ -29,6 +30,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114713842507218972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225979898938022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb5f745b770a1b42b16f46a8abaee75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Drift: 0.01
 --- !u!198 &198866774225290200
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -160,6 +160,8 @@ public class MoveCharacter : MonoBehaviour
                     animator.SetTrigger("ShakeGlobe");
                     shake.UseAll();
                     StartCoroutine(Wait());
+
+                    EventManager.Dispatch("ShakeSnowGlobe");
                 }
                 else
                 {
