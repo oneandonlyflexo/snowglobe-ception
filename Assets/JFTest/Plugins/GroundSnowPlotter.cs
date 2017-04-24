@@ -14,6 +14,48 @@ public class GroundSnowPlotter : MonoBehaviour
     [SerializeField]
     Vector3 box;
 
+    public float forceMultiplier = 1f;
+
+    public List<Transform> mySpecialFlakes = new List<Transform>();
+
+    bool jiggleMe = false;
+    private void Awake()
+    {
+        //force
+        box = new Vector3(120,40,0);
+        forceMultiplier = 1f;
+
+        Debug.LogError(">> registerign shake");
+        EventManager.Listen("ShakeSnowGlobe", ToggleIndoorOutDoor);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListen("ShakeSnowGlobe", ToggleIndoorOutDoor);
+    }
+
+    private void ToggleIndoorOutDoor()
+    {
+        Debug.LogError(">> JIGGLE SNOW PLOTTER");
+        jiggleMe = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (jiggleMe)
+        {
+            foreach (var record in mySpecialFlakes)
+            {
+                Vector2 randomVector = new Vector2((Random.value - 0.5f), (Random.value - 0.5f));
+
+                   if (record != null)
+                    record.GetComponent<Rigidbody2D>().AddRelativeForce(randomVector * forceMultiplier);
+            }
+
+            jiggleMe = false;
+        }
+    }
+
     void Start ()
     {
         Vector3 tmpv3 = Vector3.zero;
@@ -26,13 +68,15 @@ public class GroundSnowPlotter : MonoBehaviour
                 box.z
                 );
 
-            Instantiate(
+            var  flake = Instantiate(
                 groundSnowPrefab, 
                 tmpv3,
                 Quaternion.identity  
-                );
+                ) as Transform;
+
+            mySpecialFlakes.Add(flake);
         }
 
-        Destroy(gameObject);
+       // Destroy(gameObject);
     }
 }

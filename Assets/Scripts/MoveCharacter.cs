@@ -160,6 +160,9 @@ public class MoveCharacter : MonoBehaviour
                     animator.SetTrigger("ShakeGlobe");
                     shake.UseAll();
                     StartCoroutine(Wait());
+
+                    Debug.LogError(">> DISPATCHING JIGGLE");
+                    EventManager.Dispatch("ShakeSnowGlobe");
                 }
                 else
                 {
