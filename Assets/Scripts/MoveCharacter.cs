@@ -153,7 +153,7 @@ public class MoveCharacter : MonoBehaviour
             }
             else if (Input.GetButtonDown("Shake"))
             {
-                if ((shake.usables.Count > 0) && shake.usables.All(usable => usable.gameObject.activeInHierarchy))
+                if (shake.ReadyToUse)
                 {
                     Stop(WALKING);
                     shaking = true;

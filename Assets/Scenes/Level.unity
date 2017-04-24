@@ -779,9 +779,45 @@ Prefab:
       propertyPath: acceptedActorNames.Array.data[1]
       value: Dude
       objectReference: {fileID: 0}
+    - target: {fileID: 1338699019567098, guid: e995ee495bac35c4b825c913e5bf77b1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e995ee495bac35c4b825c913e5bf77b1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1324820052 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1100451976883936, guid: 600933e1ec936d5479b6c81a19b8fbc0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1840995784}
+--- !u!114 &1324820053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1324820052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8e4aa2ff4b94ac4b3f6fc03f4575b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1324820052}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1416566111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1213,11 @@ Prefab:
     - target: {fileID: 4013277922876038, guid: 600933e1ec936d5479b6c81a19b8fbc0, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114181113832214812, guid: 600933e1ec936d5479b6c81a19b8fbc0,
+        type: 2}
+      propertyPath: acceptedActorNames.Array.data[0]
+      value: Queequeg
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 600933e1ec936d5479b6c81a19b8fbc0, type: 2}
