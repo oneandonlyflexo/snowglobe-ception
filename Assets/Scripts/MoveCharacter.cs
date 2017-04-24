@@ -97,7 +97,7 @@ public class MoveCharacter : MonoBehaviour
         }
         else
         {
-            spriteRenderer.sortingOrder = (spriteRenderer.sortingOrder == 4) ? -1 : 4;
+            spriteRenderer.sortingOrder = (spriteRenderer.sortingOrder == 10) ? -1 : 10;
         }
 
         //resets for when colliders disappear before being able to send exit

@@ -15,10 +15,8 @@ public class UseObjects : MonoBehaviour
             {
                 usable.Use();
             }
-            else
-            {
-                usables.Remove(usable);
-            }
+
+            usables.Remove(usable);
         });
     }
 
