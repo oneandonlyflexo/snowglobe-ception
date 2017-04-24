@@ -7,8 +7,18 @@ public class UseObjects : MonoBehaviour
     public string tagToMatch;
     public List<Usable> usables = new List<Usable>();
 
+    public bool ReadyToUse
+    {
+        get
+        {
+            usables.RemoveAll(usable => !usable.enabled || !usable.gameObject.activeInHierarchy);
+            return usables.Count > 0;
+        }
+    }
+
     public void UseAll()
     {
+        usables.RemoveAll(usable => !usable.enabled || !usable.gameObject.activeInHierarchy);
         usables.ForEach(usable =>
         {
             if (usable.enabled)
@@ -22,7 +32,7 @@ public class UseObjects : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        var usable = collider.transform.root.GetComponentInChildren<Usable>();
+        var usable = collider.transform.parent.GetComponentInChildren<Usable>();
         if (usable != null && !usables.Contains(usable) && (usable.tag == tagToMatch))
         {
             usables.Add(usable);
@@ -31,7 +41,7 @@ public class UseObjects : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        var usable = collider.transform.root.GetComponentInChildren<Usable>();
+        var usable = collider.transform.parent.GetComponentInChildren<Usable>();
         if (usable != null && usables.Contains(usable) && (usable.tag == tagToMatch))
         {
             usables.Remove(usable);
