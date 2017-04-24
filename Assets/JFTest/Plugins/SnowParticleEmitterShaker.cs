@@ -20,7 +20,6 @@ public class SnowParticleEmitterShaker : MonoBehaviour
 
     private void ToggleIndoorOutDoor()
     {
-        Debug.LogError(">> JIGGLE SNOW PARTICLE");
         jiggleMe = true;
     }
 

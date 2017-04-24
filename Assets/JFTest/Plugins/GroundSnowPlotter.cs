@@ -24,8 +24,8 @@ public class GroundSnowPlotter : MonoBehaviour
         //force
         box = new Vector3(120,40,0);
         forceMultiplier = 1f;
+        numOfFlakes = 500;
 
-        Debug.LogError(">> registerign shake");
         EventManager.Listen("ShakeSnowGlobe", ToggleIndoorOutDoor);
     }
 
@@ -36,7 +36,6 @@ public class GroundSnowPlotter : MonoBehaviour
 
     private void ToggleIndoorOutDoor()
     {
-        Debug.LogError(">> JIGGLE SNOW PLOTTER");
         jiggleMe = true;
     }
 
