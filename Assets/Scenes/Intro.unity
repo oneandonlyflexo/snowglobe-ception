@@ -185,10 +185,10 @@ RectTransform:
   m_Father: {fileID: 1498753657}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -269, y: 204}
-  m_SizeDelta: {x: 184, y: 64.219}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -269, y: -516}
+  m_SizeDelta: {x: 184, y: 64.218994}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &338528118
 MonoBehaviour:
@@ -321,7 +321,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 439, y: -466}
-  m_SizeDelta: {x: 1025, y: 141.66667}
+  m_SizeDelta: {x: 1025, y: 141.66675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492170832
 MonoBehaviour:
@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 657784953}
   - component: {fileID: 657784952}
   - component: {fileID: 657784951}
+  - component: {fileID: 657784956}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -526,7 +527,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 0.40784317, g: 0.654902, b: 0.82745105, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -564,6 +565,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &657784956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 657784950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cd2b3a4caaa274587f8e9411d35313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &897910354
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +609,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -400, y: 317}
-  m_SizeDelta: {x: 991.6667, y: 333.33334}
+  m_SizeDelta: {x: 991.66675, y: 333.33334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897910356
 MonoBehaviour:
@@ -664,9 +676,9 @@ RectTransform:
   m_Father: {fileID: 1498753657}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -279, y: 123}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -279, y: -597}
   m_SizeDelta: {x: 298, y: 61}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1478063256
@@ -812,11 +824,11 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1280}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
