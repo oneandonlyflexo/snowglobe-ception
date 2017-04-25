@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4739962626674142}
   - component: {fileID: 212735795450377640}
+  - component: {fileID: 114283997878792012}
   m_Layer: 0
   m_Name: snowglobe
   m_TagString: Shake_Dog
@@ -117,7 +118,7 @@ GameObject:
   - component: {fileID: 212089821582218204}
   - component: {fileID: 61265672809983210}
   m_Layer: 0
-  m_Name: DoorTrigger
+  m_Name: DoorTriggerDog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceptedActorNames:
-  - Dude
+  - Queequeg
   triggerEnter:
     m_PersistentCalls:
       m_Calls:
@@ -521,6 +522,33 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1267955233972022}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114283997878792012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100451976883936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8e4aa2ff4b94ac4b3f6fc03f4575b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1100451976883936}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:

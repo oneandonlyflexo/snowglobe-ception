@@ -11,6 +11,7 @@ public class MoveCharacter : MonoBehaviour
     private const string TOP_OF_LADDER = "TopOfLadder";
     private const string BOTTOM_OF_LADDER = "BottomOfLadder";
     private const string DOOR_TRIGGER_NAME = "DoorTrigger";
+    private const string DOGGY_DOOR_TRIGGER_NAME = "DoorTriggerDog";
 
     public DudeSounds charSoundManager;
     public bool isDog = false;
@@ -234,7 +235,7 @@ public class MoveCharacter : MonoBehaviour
             animator.SetBool(BOTTOM_OF_LADDER, true);
         }
 
-        if (collider.name == DOOR_TRIGGER_NAME)
+        if (collider.name == DOOR_TRIGGER_NAME || (collider.name == DOGGY_DOOR_TRIGGER_NAME && isDog) )
         {
             touchingDoor = true;
         }
@@ -255,7 +256,7 @@ public class MoveCharacter : MonoBehaviour
             animator.SetBool(BOTTOM_OF_LADDER, false);
         }
 
-        if (collider.name == DOOR_TRIGGER_NAME)
+        if (collider.name == DOOR_TRIGGER_NAME || collider.name == DOGGY_DOOR_TRIGGER_NAME)
         {
             touchingDoor = false;
         }
