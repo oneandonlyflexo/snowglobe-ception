@@ -6,6 +6,15 @@ public class UseObjects : MonoBehaviour
 {
     public string tagToMatch;
     public List<Usable> usables = new List<Usable>();
+    public MoveCharacter myController;
+
+    const string dudeName = "Dude";
+    const string dogName = "Queequeg";
+
+    public void SetController(MoveCharacter myController)
+    {
+        this.myController = myController;
+    }
 
     public bool ReadyToUse
     {
@@ -35,7 +44,11 @@ public class UseObjects : MonoBehaviour
         var usable = collider.transform.parent.GetComponentInChildren<Usable>();
         if (usable != null && !usables.Contains(usable) && (usable.tag == tagToMatch))
         {
-            usables.Add(usable);
+            if (!myController.isInside || 
+                (myController.isInside && collider.transform.root.name != dudeName && collider.transform.root.name != dogName))
+            {
+                usables.Add(usable);
+            }
         }
     }
 

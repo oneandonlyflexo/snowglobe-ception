@@ -677,6 +677,21 @@ Prefab:
       propertyPath: actions.m_PersistentCalls.m_Calls.Array.data[8].m_Target
       value: 
       objectReference: {fileID: 785833436}
+    - target: {fileID: 114165798865422410, guid: d8ec77dfed65a496fa48108b14a9460d,
+        type: 2}
+      propertyPath: myController
+      value: 
+      objectReference: {fileID: 649293543}
+    - target: {fileID: 114172383815877074, guid: d8ec77dfed65a496fa48108b14a9460d,
+        type: 2}
+      propertyPath: myController
+      value: 
+      objectReference: {fileID: 649293543}
+    - target: {fileID: 212017967415014868, guid: d8ec77dfed65a496fa48108b14a9460d,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8ec77dfed65a496fa48108b14a9460d, type: 2}
   m_IsPrefabParent: 0
@@ -2610,6 +2625,21 @@ Prefab:
       propertyPath: actions.m_PersistentCalls.m_Calls.Array.data[10].m_Target
       value: 
       objectReference: {fileID: 770860054}
+    - target: {fileID: 114503426613568534, guid: f5de6f06a66646947bdeb20a3f2087dd,
+        type: 2}
+      propertyPath: myController
+      value: 
+      objectReference: {fileID: 1824850922}
+    - target: {fileID: 114667867524865512, guid: f5de6f06a66646947bdeb20a3f2087dd,
+        type: 2}
+      propertyPath: myController
+      value: 
+      objectReference: {fileID: 1824850922}
+    - target: {fileID: 212426012679918756, guid: f5de6f06a66646947bdeb20a3f2087dd,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5de6f06a66646947bdeb20a3f2087dd, type: 2}
   m_IsPrefabParent: 0
